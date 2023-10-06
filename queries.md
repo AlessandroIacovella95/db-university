@@ -9,7 +9,7 @@
 
 SELECT *
 FROM `students`
-WHERE YEAR(date_of_birth) = "1990";
+WHERE YEAR(date_of_birth) = 1990;
 ```
 
 ## QUERY 2
@@ -27,9 +27,9 @@ WHERE `cfu` > 10;
 ```sql
 -- Selezionare tutti gli studenti che hanno più di 30 anni
 
-SELECT *, (YEAR(CURRENT_DATE()) - YEAR(date_of_birth) -(RIGHT(CURRENT_DATE(),5) < RIGHT(date_of_birth,5))) AS età
-FROM students
-WHERE YEAR(CURRENT_DATE()) - YEAR(date_of_birth)-(RIGHT(CURRENT_DATE(),5) < RIGHT(date_of_birth,5)) >= 30
+SELECT *
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, date_of_birth, CURRENT_DATE()) >= 30;
 ```
 
 ## QUERY 4
@@ -49,7 +49,7 @@ WHERE`period` = "I semestre" AND `year`= "1";
 
 SELECT *
 FROM `exams`
-WHERE DATE(date) = "2020/06/20" AND TIME(hour) > "14%";
+WHERE date = "2020-06-20" AND hour >= "14";
 ```
 
 ## QUERY 6
